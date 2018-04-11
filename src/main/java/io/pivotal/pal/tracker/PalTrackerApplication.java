@@ -28,6 +28,7 @@ public class PalTrackerApplication {
     }
 
 
+
     @Bean
     public ObjectMapper jsonObjectMapper() {
         return Jackson2ObjectMapperBuilder.json()

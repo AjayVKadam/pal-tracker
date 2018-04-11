@@ -11,7 +11,6 @@ import java.util.List;
 @RequestMapping("/time-entries")
 public class TimeEntryController {
 
-    //@Autowired
     private TimeEntryRepository timeEntryRepository;
 
     public TimeEntryController(TimeEntryRepository timeEntryRepository) {
@@ -19,27 +18,12 @@ public class TimeEntryController {
     }
 
     @PostMapping
-    //@RequestMapping(method=RequestMethod.POST)
     public ResponseEntity<TimeEntry>  create(@RequestBody TimeEntry timeEntry) {
 
         TimeEntry entry = timeEntryRepository.create(timeEntry);
         return ResponseEntity.status(HttpStatus.CREATED).body(entry);
     }
 
-/*    @GetMapping
-    public ResponseEntity<TimeEntry> read(long l) {
-        TimeEntry entry = timeEntryRepository.find(l);
-
-        if(entry!=null) {
-            //If found
-
-            return ResponseEntity.status(HttpStatus.OK).body(entry);
-        }
-        else {
-            //If not found
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
-        }
-    }*/
 
     @GetMapping
     public ResponseEntity<List<TimeEntry>> list() {
@@ -69,7 +53,6 @@ public class TimeEntryController {
     }
 
 
-    //@RequestMapping(method = RequestMethod.PUT)
     @PutMapping( "{id}" )
     public ResponseEntity<TimeEntry> update(@PathVariable long id, @RequestBody TimeEntry expected) {
         TimeEntry entry = timeEntryRepository.update(id,expected);

@@ -10,12 +10,13 @@ repositories {
 dependencies {
     compile("org.springframework.boot:spring-boot-starter-web")
     testCompile("org.springframework.boot:spring-boot-starter-test")
+    compile("com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.9.1")
 }
 
 bootRun.environment([
-        "WELCOME_MESSAGE": "hello PAL Training",
+        "WELCOME_MESSAGE": "hello PAL Training"
 ])
 
 test.environment([
-        "WELCOME_MESSAGE": "Hello from test",
+        "WELCOME_MESSAGE": "Hello from test"
 ])
